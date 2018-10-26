@@ -15,7 +15,7 @@ import pandas as pd
 death=7.3/(1000*365.0)
 birth=19.3/(1000*365.0)
 beta=1/10
-gamma=1/1000
+gamma=1/100
 vac = 1/1000
 S0=0.8
 I0=0.1
@@ -24,7 +24,7 @@ INPUT = (S0, I0, R0)
 def diff_eqs(INPUT,t):  
 	'''The main set of equations'''
 	Y=np.zeros((3))
-	V = INPUT    
+	V = INPUT
 	Y[0] = birth*(V[0]+V[1]+V[2]) - beta * V[0] * V[1] - death * V[0] - vac*V[0]
 	Y[1] = beta * V[0] * V[1] - gamma * V[1] - 2*death * V[1]
 	Y[2] = gamma * V[1] - death * V[2]+ vac*V[0]
